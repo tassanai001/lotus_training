@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+  <link rel="stylesheet" href="css/jquery-ui.min.css">
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <style>
+    .draggable {
+      width: 250px;
+      height: 250px;
+      border: 10px yellow dashed;
+      text-align: center;
+      color: violet;
+      cursor: pointer;
+    }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <div class="draggable">
+    <h1>Make Color</h1>
+  </div>
+  <img class="droppable" width="300px" height="250px" src="img/dog-bw.jpg">
+</body>
+<script>
+  $('.draggable').draggable();
+  $( ".droppable" ).droppable({
+      drop: function( event, ui ) {
+        $(this).attr('src', 'img/dog-color.jpg')
+      },
+      out: function( event, ui ) {
+        $(this).attr('src', 'img/dog-bw.jpg')
+      }
+    });
+</script>
+</html>
